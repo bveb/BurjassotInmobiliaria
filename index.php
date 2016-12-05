@@ -105,11 +105,18 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAJFci-JqNw-YOXjQgnGt4A4Q_-04dL3rg"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $.getJSON("php/conexionFrontEnd.php", function (data) {
+        $.getJSON("php/conexionFrontEnd.php",{tipo:"municipios"}, function (data) {
             $('#conttxt2_filtros_f2').html('<option>'+data[0].nombre+'</option>')
             for(i = 1; i< data.length;i++){
                 
                 $('#conttxt2_filtros_f2').append('<option>'+data[i].nombre+'</option>')
+            }      
+        })
+        $.getJSON("php/conexionFrontEnd.php",{tipo:"tipoPiso"}, function (data) {
+            $('#conttxt2_filtros_f1').html('<option>'+data[0].nombre+'</option>')
+            for(i = 1; i< data.length;i++){
+                
+                $('#conttxt2_filtros_f1').append('<option>'+data[i].nombre+'</option>')
             }      
         })
     })
