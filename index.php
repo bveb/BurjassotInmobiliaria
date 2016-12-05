@@ -105,7 +105,7 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAJFci-JqNw-YOXjQgnGt4A4Q_-04dL3rg"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $.getJSON("Prueba.php", function (data) {
+        $.getJSON("php/conexionFrontEnd.php", function (data) {
             $('#conttxt2_filtros_f2').html('<option>'+data[0].nombre+'</option>')
             for(i = 1; i< data.length;i++){
                 
