@@ -1,0 +1,21 @@
+
+[
+    {
+        "certificados" : "CERTIFICADOS WEB",
+        "condServ" : "CONDICIONES DEL SERVICIO",
+        "contacto" : "CONTACTO",
+        "legal" : "AVISO LEGAL",
+        "misWebs" : "WEBS AMIGAS",
+        "nosotros" : "QUIENES SOMOS",
+        "politica" : "POLITICA DE PRIVACIDAD"
+    },
+    {
+        "certificados" :"Disponemos de todos los certificados habidos y por haber",
+        "condServ" : "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. ",
+        "contacto" : "Aqui deben aparecer el email de contacto y el telefono, la ubicación, google maps etc",
+        "legal" : "Avisamos legalmente de todo lo que tengamos que avisar",
+        "misWebs" : "Las webs de mis amigos",
+        "nosotros" : "Somos una familia de cojones",
+        "politica" : "La politica es una vergüenza en este mundo corrompido"
+    }
+]

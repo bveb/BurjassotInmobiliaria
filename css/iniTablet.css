@@ -1,0 +1,273 @@
+@import url("reset.css");
+@import url("normalize.css");
+
+@font-face {
+	font-family: 'Axaxax';
+	src: url('../fuentes/Axaxax/Axaxax.eot') format('eot');
+	src: url('../fuentes/Axaxax/Axaxax.woff') format('woff'), 
+         url('../fuentes/Axaxax/Axaxax.ttf') format('truetype'),
+         url('../fuentes/Axaxax/Axaxax.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GauntletClassic';
+	src: url('../fuentes/GauntletClassic/GauntletClassic.eot') format('eot');
+	src: url('../fuentes/GauntletClassic/GauntletClassic.woff') format('woff'),
+         url('../fuentes/GauntletClassic/GauntletClassic.ttf') format('truetype'), 
+         url('../fuentes/GauntletClassic/GauntletClassic.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* ELEMENTOS */
+body
+{
+    background-color:#951f1b;
+    color:white;
+    margin: 0;
+    padding: 0;
+    font-family: 'GauntletClassic' , sans-serif;
+    font-size: 16px;
+}
+select
+{
+    height: 1.6em;
+    width: 100%;
+}
+
+/* ID */
+
+
+#cabecera
+{
+    padding-top: 0.5em;
+    margin: auto;
+    width: 96%;
+    height: 10%;
+    text-align: center;
+}
+#cab_logo
+{
+    width: auto;
+    height: 90%;
+}
+#cab_esp
+{
+    position: absolute;
+    top: 1.5em;
+    left: 1.5em;
+}
+#cab_ing
+{
+    position: absolute;
+    top: 1.5em;
+    left: 4.5em;
+    
+}
+#cab_val
+{
+    position: absolute;
+    top: 1.5em;
+    left: 7.5em;
+    
+}
+#cab_usuario
+{
+    position: absolute;
+    top: 6%;
+    right: 5em;
+    width: 7em;
+    height: auto;
+    
+}
+#cab_menu
+{
+    position: absolute;
+    top: 6%;
+    right: 1em;
+    width: 2em;
+    height: auto;
+    
+}
+#cab_menu_ext
+{
+    background-color: #951f1b;
+    -webkit-box-shadow: inset 10px 5px 10px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 5px 5px 10px 5px rgba(0,0,0,0.5);
+    box-shadow: inset 5px 5px 10px 5px rgba(0,0,0,0.5);
+    color: white;
+    height: 58%;
+    width: 96%;
+    padding-top: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    visibility: hidden;
+    opacity: 0.95;
+    z-index: 2;
+    
+}
+#cab_menu_ext > button
+{
+    margin: 0.5em auto;   
+}
+#cab_menu_ext_cerrar
+{
+    background-color: #951f1b;
+    color: white;
+    bottom: 5%;
+    position:inherit;
+    left: 10%;
+    width: 80%;
+    
+}
+#contenidoImg
+{
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    background-color:#951f1b;
+    background-repeat: no-repeat;
+    margin: auto;
+    width: 96%;
+    height: 70%;
+    visibility: vivible; 
+}
+#contenidoTxt
+{
+    background-color:white;
+    color: #951f1b; 
+    margin: auto;
+    width: 96%;
+    height: 15%;
+    visibility: visible; 
+}
+#conttxt1
+{
+    width: 80%%;
+    height: 25%;
+    padding-left: 20%;
+}
+#conttxt1_check
+{
+    padding-top: 0.7em;
+}
+#conttxt1_check > label
+{
+    padding-right: 2em;
+}
+#conttxt2
+{
+    float: left;
+    width: 70%;
+    height: 75%;
+}
+#conttxt2_filtros
+{
+    padding: 0 2.5%;
+}
+#conttxt2_filtros_f1
+{
+}
+#conttxt2_filtros_f2
+{
+    margin-top: 2.5%;
+}
+#conttxt2_filtros_f3
+{
+    width: 100%;
+    height: auto;
+    margin-top: 0.4em;
+    padding: 0.2em 0;
+}
+#conttxt2_filtros_f3_ext
+{
+    background-color: #951f1b;
+    -webkit-box-shadow: inset 10px 5px 10px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 5px 5px 10px 5px rgba(0,0,0,0.5);
+    box-shadow: inset 5px 5px 10px 5px rgba(0,0,0,0.5);
+    color: white;
+    height: 87%;
+    width: 96%;
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    visibility: hidden;
+    opacity: 0.95;
+    z-index: 2;
+}
+#conttxt2_filtros_f3_ext > label
+{
+    position: relative;
+    top: 10%;
+    left: 10%;
+    display: block;
+    float: left;
+    padding-bottom: 0.6em;
+    width: 60%;
+}
+#conttxt2_filtros_f3_ext > input
+{
+    position: relative;
+    top: 10%;
+    left: 10%;
+    margin-bottom: 1em;
+    width: 1.5em;
+}
+#conttxt2_filtros_f3_ext_cerrar
+{
+    background-color: #951f1b;
+    color: white;
+    bottom: 5%;
+    position:inherit;
+    left: 10%;
+    width: 80%;
+    
+}
+#conttxt3
+{
+    width: 100%;
+    height: auto;
+}
+#conttxt3_modoSelec > button
+{
+    margin: auto;
+    margin-bottom: 0.5%;
+    padding: 1.8% 0;
+    width: 26%;
+    height: auto;
+}
+#pie
+{
+    width: 100%;
+    height: auto;
+    margin: 0.5em auto;
+    text-align: center;
+}
+#pie > span
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 2em;
+}
+#pie > a
+{
+    font-size: 1em;  
+}
+
+/* CLASES */
+
+.icoBanderas
+{
+    width: 2em;
+    height: auto;
+}
+.numTel
+{
+    padding-right: 2em;
+    color:darkturquoise;
+    text-decoration:underline;
+}
+
