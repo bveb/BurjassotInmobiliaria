@@ -19,7 +19,7 @@
           <img id="cab_ing" src="img/icon/bandIng.png" alt="Cambiar a idioma ingles" class="icoBanderas"/>
           <img id="cab_val" src="img/icon/bandVal.png" alt="Cambiar a idioma valenciano" class="icoBanderas"/>
           <img id="cab_logo" src="img/icon/logo.png" alt="Logotipo Inmobiliaria Burjassot"/>
-          <img id="cab_usuario" src="img/icon/icoUsuarios.png" alt="Acceso usuarios"/>
+           <a href="./backend/login.php"><img id="cab_usuario" src="img/icon/icoUsuarios.png" alt="Acceso usuarios"/></a>
           <img id="cab_menu" src="img/icon/icoMenu.png" alt="Acceso a menu"/>
           <div id="cab_menu_ext">
                <button id="cab_menu_ext_somos">Quienes somos</button><br>
