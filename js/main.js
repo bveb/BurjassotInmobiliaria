@@ -31,8 +31,9 @@ function ini (x,y)
                 }    
             else cambiaCSS("css/iniPhone.css");// Phone Vertical
         }
-        
-        mapa();
+        idioma = "sp";
+        domBase();
+        //mapa();
     });
     
  

@@ -94,18 +94,18 @@ select
 #cab_menu_ext
 {
     background-color: #951f1b;
-    -webkit-box-shadow: inset 10px 5px 10px 5px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 5px 5px 10px 5px rgba(0,0,0,0.5);
-    box-shadow: inset 5px 5px 10px 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 3px 3px 5px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 3px 3px 5px 3px rgba(0,0,0,0.5);
+    box-shadow: inset 3px 3px 5px 3px rgba(0,0,0,0.5);
     color: white;
-    height: 58%;
-    width: 96%;
-    padding-top: 50%;
+    height: auto;
+    width: 97%;
     position: absolute;
-    bottom: 0;
-    left: 2%;
-    visibility: hidden;
-    opacity: 0.95;
+    bottom: 1%;
+    top: 11%;
+    left: 1.5%;
+    visibility: visible;
+    opacity: 0.8;
     z-index: 2;
     
 }

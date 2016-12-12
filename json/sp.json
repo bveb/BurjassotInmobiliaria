@@ -1,0 +1,21 @@
+[
+    {
+        "cab_esp" :  "Selecciona idioma español",
+        "cab_ing" :  "Selecciona idioma ingles",
+        "cab_val" :  "Selecciona idioma valenciano",
+        "cab_logo" :  "Logotipo BurjassotInmobiliaria",
+        "cab_menu" :  "Acceso a menu",
+        "cab_usuario" : "Acceso usuarios",
+        "comprar" :  "COMPRAR",
+        "alquilar" :  "ALQUILAR",
+        "filtros" : "MAS FILTROS",
+        "mapa" : "MAPA",
+        "listado" : "LISTA",
+        "menuSomos" : "Quienes somos",
+        "menuContacto" : "Contacto",
+        "menuCondiciones" : "Condiciones del servicio",
+        "menuCerrar" : "CERRAR",
+        "h1_Home" : "BUSCADOR DE INMUEBLES",
+        "h3_filtros" : "SELECCIONA LOS FILTROS DE BUSQUEDA"
+    }
+]

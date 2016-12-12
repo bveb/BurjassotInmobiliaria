@@ -1,252 +1,335 @@
 
 
 
+////////////////////////////
+/// CONSTRUCCION DEL DOM ///
+////////////////////////////
 
-// CLASE DOM ***************************************
-
-// Crea los elementos que aparecen en en toda la web independientemente del contenido:
-        // logotipo
-        // barra inferior de navegación con menu opciones, enlace a redes sociales y enlace a webil.
-        // capa de contenidos que varían según la navegación por el sitio
-
-function claseDom()
-{
-    
-    // CONSTRUCTOR DEL DOM
-    $.getJSON('json/domBase.json', f);
-    function f (d)
-    {
-        // CONSTRUCCION DEL DOM
-        $('body').html($(d[0].contenedor)); // CREA EL CONTENEDOR
-        $('#contenedor').height(dimYwindow);//ASIGNA DIMENSION Y DEL NAVEGADOR AL CONTENEDOR
-        $('#contenedor').width(dimXwindow);//ASIGNA DIMENSION X DEL NAVEGADOR AL CONTENEDOR
-        $('#contenedor').append($(d[0].cabecera));//INSERTA CABECERA DENTRO DE CONTENEDOR
-        $('#contenedor').append($(d[0].opciones));//INSERTA OPCIONES DESPUES DE CABECERA
-        $('#contenedor').append($(d[0].contenido));//INSERTA CONTENIDO DESPUES DE OPCIONES
-        $('#contenedor').append($(d[0].pie));//INSERTA PIE DE PÁGINA DESPUES DE CONTENIDO
-        $('#pie').append($(d[0].volver)); // INSERTA botón volver
-
-            // ASIGNANDO ICONOS
-        var imgCab = document.getElementById('logo');
-        var imgCabUrl = ($(d[1].imgCab))[0].url;
-        var imgCabTxt = ($(d[1].imgCab))[0].txt;
-        var icoVolver = document.getElementById('icoVolver');
-        var icoVolverUrl = ($(d[1].icoVolver))[0].url;
-        var icoVolverTxt = ($(d[1].icoVolver))[0].txt;
-        var icoMenu = document.getElementById('icoMenu');
-        var icoMenuUrl = ($(d[1].icoMenu))[0].url;
-        var icoMenuTxt = ($(d[1].icoMenu))[0].txt;
-        var icoApp = document.getElementById('icoApp');
-        var icoAppUrl = ($(d[1].icoApp))[0].url;
-        var icoAppTxt = ($(d[1].icoApp))[0].txt;
-        var icoFace = document.getElementById('icoFace');
-        var icoFaceUrl = ($(d[1].icoFace))[0].url;
-        var icoFaceTxt = ($(d[1].icoFace))[0].txt;
-        var icoTwitter = document.getElementById('icoTwitter');
-        var icoTwitterUrl = ($(d[1].icoTwitter))[0].url;
-        var icoTwitterTxt = ($(d[1].icoTwitter))[0].txt;
-        var icoPinterest = document.getElementById('icoPinterest');
-        var icoPinterestUrl = ($(d[1].icoPinterest))[0].url;
-        var icoPinterestTxt = ($(d[1].icoPinterest))[0].txt;
-        var icoGoogle = document.getElementById('icoGoogle');
-        var icoGoogleUrl = ($(d[1].icoGoogle))[0].url;
-        var icoGoogleTxt = ($(d[1].icoGoogle))[0].txt;
-
-        // INSERTANDO ICONOS
-        $(imgCab).attr({"src":imgCabUrl, "alt":imgCabTxt});
-        $(icoMenu).attr({"src":icoMenuUrl, "alt":icoMenuTxt});
-        $(icoApp).attr({"src":icoAppUrl, "alt":icoAppTxt});
-        $(icoFace).attr({"src":icoFaceUrl, "alt":icoFaceTxt});
-        $(icoTwitter).attr({"src":icoTwitterUrl, "alt":icoTwitterTxt});
-        $(icoPinterest).attr({"src":icoPinterestUrl, "alt":icoPinterestTxt});
-        $(icoGoogle).attr({"src":icoGoogleUrl, "alt":icoGoogleTxt});
-        $(icoVolver).attr({"src":icoVolverUrl, "alt":icoVolverTxt});
-    }
-    
-    // TEXTOS DEL MENU OPCIONES
-    $.getJSON('json/txtBase.json', t)
-     function t (d)
-    {
-        $('#nosotros > p').text(d[0].nosotros);
-        $('#contacto > p').text(d[0].contacto);
-        $('#condServ > p').text(d[0].condiciones);
-        $('#legal > p').text(d[0].aviso);
-        $('#politica > p').text(d[0].politica);
-        $('#misWebs > p').text(d[0].webs);
-        $('#certificados > p').text(d[0].certificados);
-    }
-}
-
-    
-
-
-
-// CONSTRUYE EL DOM BASE Y ASIGNA EVENTOS BASE 
 function domBase()
 {
-    var dom = new claseDom(); // CREANDO EL DOM BASE
+    
+    //////////////////////
+    // CODIGO HTML BASE //
+    //////////////////////
+    
+    $.getJSON('json/domBase.json', base);
+    
+    function base (d) // INICIO FUNCION JSON HTML
+    {
+        switch (idioma)
+        {
+            case "sp":
+                urlIdioma = "json/sp.json";
+            break;
+            case "en":
+                urlIdioma = "json/en.json";
+            break;
+            case "va":
+                urlIdioma = "json/va.json";
+            break;
+        }
         
+        ///////////////////////////////////
+        // CODIGO DEPENDIENTE DEL IDIOMA //
+        ///////////////////////////////////
+        
+        $.getJSON(urlIdioma, conIdioma); 
+        
+        function conIdioma(t) // INICIO FUNCION JSON IDIOMA
+        {
+            // CONSTRUCCION DEL DOM
+            $('body').html($(d[0].contenedor)); // CREA EL CONTENEDOR
+            $('#contenedor').height(dimYwindow);//ASIGNA DIMENSION Y DEL NAVEGADOR AL CONTENEDOR
+            $('#contenedor').width(dimXwindow);//ASIGNA DIMENSION X DEL NAVEGADOR AL CONTENEDOR
+            $('#contenedor').append($(d[0].cabecera));//INSERTA CABECERA DENTRO DE CONTENEDOR
+            $('#contenedor').append($(d[0].contenidoImg));//INSERTA CONTENIDO 'imagenes' DESPUES DE CABECERA
+            $('#contenedor').append($(d[0].contenidoTxt));//INSERTA CONTENIDO 'texto' DESPUES DE 'imagenes'
+            $('#contenedor').append($(d[0].pie));//INSERTA PIE DE PÁGINA DESPUES DE CONTENIDO
+            $("#conttxt1").html($(d[0].conttxt1));//INSERTA EN CONTENIDO 'texto' CONTENEDORES DE FILTROS
+            $("#conttxt2").html($(d[0].conttxt2));//INSERTA EN CONTENIDO 'texto' CONTENEDORES DE FILTROS
+            $("#conttxt3").html($(d[0].conttxt3));//INSERTA EN CONTENIDO 'texto' CONTENEDORES DE FILTROS
+            $("#cab_menu_ext").html($(d[0].menu));//INSERTA EN CONTENIDO 'texto' CONTENEDORES DE FILTROS
+
+            // ASIGNANDO ICONOS
+            var cab_espImg = d[1].cab_esp;
+            var cab_ingImg = d[1].cab_ing;
+            var cab_valImg = d[1].cab_val;
+            var cab_logoImg = d[1].cab_logo;
+            var cab_menuImg = d[1].cab_menu;
+            var cab_usuarioImg = d[1].cab_usuario;
+            
+            // ASIGNANDO TEXTOS
+            var cab_espTxt = t[0].cab_esp;
+            var cab_ingTxt = t[0].cab_ing;
+            var cab_valTxt = t[0].cab_val;
+            var cab_logoTxt = t[0].cab_logo;
+            var cab_menuTxt = t[0].cab_menu;
+            var cab_usuarioTxt = t[0].cab_usuario;
+            var comprarTxt = t[0].comprar;
+            var alquilarTxt = t[0].alquilar;
+            var filtrosTxt = t[0].filtros;
+            var mapaTxt = t[0].mapa;
+            var listadoTxt = t[0].listado;
+            var menuSomosTxt = t[0].menuSomos;
+            var menuContactoTxt = t[0].menuContacto;
+            var menuCondicionesTxt = t[0].menuCondiciones;
+            //var menuCerrarTxt = t[0].menuCerrar;
+            //console.log(compraTxt);
+
+            // INSERTANDO ICONOS
+            $("#cab_esp").attr({"src":cab_espImg, "alt":cab_espTxt, "class":"icoBanderas"});
+            $("#cab_ing").attr({"src":cab_ingImg, "alt":cab_ingTxt, "class":"icoBanderas"});
+            $("#cab_val").attr({"src":cab_valImg, "alt":cab_valTxt, "class":"icoBanderas"});
+            $("#cab_logo").attr({"src":cab_logoImg, "alt":cab_logoTxt});
+            $("#cab_usuario").attr({"src":cab_usuarioImg, "alt":cab_usuarioTxt});
+            $("#cab_menu").attr({"src":cab_menuImg, "alt":cab_menuTxt});
+            $("#conttxt1_label_comprar").text(comprarTxt);
+            $("#conttxt1_label_alquilar").text(alquilarTxt);
+            $("#conttxt2_filtros_f3").text(filtrosTxt);
+            $("#conttxt3_modoSelec_mapa").text(mapaTxt);
+            $("#conttxt3_modoSelec_lista").text(listadoTxt);
+            $("#cab_menu_ext_somos").text(menuSomosTxt);
+            $("#cab_menu_ext_contacto").text(menuContactoTxt);
+            $("#cab_menu_ext_condiciones").text(menuCondicionesTxt);
+            //$("#cab_menu_ext_cerrar").text(menuCerrarTxt);
+            
+            
+            
+            eventos();
+            leebd();   
+            
+        } // FINAL FUNCION JSON IDIOMA   
+    }// FINAL FUNCION JSON HTML
+    
+    
+} // FINAL DOMBASE
+
+
+
+
+////////////////////////////
+/// MANEJADOR DE EVENTOS ///
+////////////////////////////
+
+function eventos()
+{
+$('#cab_esp').click(cambiaIdioma);
+$('#cab_ing').click(cambiaIdioma);
+$('#cab_val').click(cambiaIdioma);
+$('#cab_logo').click(domBase);
+$('#cab_usuario').click(accesoUsuarios);
+$('#cab_menu').click(menu);
+$('#conttxt2_filtros_f3').click(menuFiltros);
+$('#conttxt3_modoSelec_mapa').click(mapa);
+$('#conttxt3_modoSelec_lista').click(listadoPisos);
+}
+
+// FINAL MANEJADOR DE EVENTOS //
+
+
+
+
+////////////////////////////
+///   CAMBIO DE IDIOMA   ///
+////////////////////////////
+
+function cambiaIdioma(e)
+{
+    var idClick = e.target.id;
+    //var subId = idClick.substr(0,4);
+    switch (idClick)
+    {
+        case 'cab_esp': 
+            idioma = "sp";
+            $('html').attr({"lang":"es"});
+        break;
+        case 'cab_ing': 
+            idioma = "en";
+            $('html').attr({"lang":"en"});
+        break;
+        case 'cab_val':
+            idioma = "va";
+            $('html').attr({"lang":"ca"});
+        break;    
+    }
+    
+    domBase();
+}
+
+// FINAL CAMBIO DE IDIOMA //
+
+
+
+
+////////////////////////////
+///   ACCESO USUARIOS    ///
+////////////////////////////
+
+function accesoUsuarios()
+{
+    alert ("acceso usuarios");
+}
+
+//  FINAL ACCESO USUARIOS  //
+
+
+
+
+////////////////////////////
+///         MENU         ///
+////////////////////////////
+
+function menu()
+{
+     $('#cab_menu_ext').animate(
+                                {width:"0%"},0, 'swing',
+                                function()
+                                {
+                                    $("#cab_menu_ext").css("visibility", "visible");
+                                    $('#cab_menu_ext').animate({width:"60%"},'slow','swing',
+                                    function()
+                                    {
+                                        $('#cab_menu').click(domBase);
+                                        
+                                    });
+                                }
+                );
+    
+    
+}
+
+//     FINAL MENU         //
+
+
+
+
+////////////////////////////
+///       FILTROS        ///
+////////////////////////////
+
+function menuFiltros()
+{ 
+    switch (idioma)
+            {
+                case "sp":
+                    urlIdioma = "json/sp.json";
+                break;
+                case "en":
+                    urlIdioma = "json/en.json";
+                break;
+                case "va":
+                    urlIdioma = "json/va.json";
+                break;
+            }
+
+            ///////////////////////////////////
+            // CODIGO DEPENDIENTE DEL IDIOMA //
+            ///////////////////////////////////
+
+            $.getJSON(urlIdioma, conIdioma); 
+
+            function conIdioma(t) // INICIO FUNCION JSON IDIOMA
+            {
+
+                $('#contenidoTxt').html("<div id=\"contTxt_filtros\"><h3>"+t[0].h3_filtros+"</h3></div>");
+                $('#contenidoTxt').animate(
+                                {height:"82%"},0, 'swing',
+                                function()
+                                {
+                                    $('#contenidoImg').animate({height:"0%"},'slow','swing',f);
+                                }
+                );
+                function f()
+                {
+                    leeFiltros("filtrosFinca");
+                    leeFiltros("filtrosExterior");
+                    leeFiltros("filtrosInterior");
+                    leeFiltros("filtrosAlquiler");
+                    $('#contTxt_filtros').append("<button id=\"contenidoTxt_cerrar\">"+t[0].menuCerrar+"</button>");
+                    $("#contenidoTxt_cerrar").click(menuFiltrosCierre);    
+                }
+            }
+   
+    
+}
+
+function leeFiltros(filtro)
+{
+    
+  $.getJSON("php/conexionFrontEnd.php",{tipo:filtro}, function (data) {
+      var aux = filtro.substr(7);
+      $('#contTxt_filtros').append("<h2>"+aux+" </h2>")
+                        for(i = 1; i< data.length;i++)
+                        {
+                            var txt = data[i].COLUMN_NAME;
+                            console.log(txt.length);
+                            var txtRes = txt.substr(0,1);
+                            for(j = 1; j<txt.length; j++)
+                                {
+                                    aux = txt.substr(j,1);
+                                    if (aux == "_"){aux = " ";}
+                                    txtRes = txtRes + aux;
+                                    console.log("aux = " + aux + " txtRes = " + txtRes);
+                                }
+                            
+                            var markID = txt.substr(0,2);
+                            if (markID == "id"){break}
+                                                       
+                            $('#contTxt_filtros').append("<input type=\"checkbox\"id=filtro"+i+"/> "+txtRes+" <br>")
+                        }
+                        $('#contTxt_filtros').append("<br>")
+                    })  
+}
+
+function menuFiltrosCierre()
+{
+    $('#contenidoTxt').html("");
+    $('#contenidoTxt').animate(
+                                {height:"22%"},0, 'swing',
+                                function()
+                                {
+                                    $('#contenidoImg').animate({height:"60%"},'slow','swing',domBase());
+                                }
+                );
+}
+//     FINAL FILTROS      //
+
+
+
+
+////////////////////////////
+///        MAPA          ///
+////////////////////////////
+
+function mapa()
+{
+    console.log("dentro mapa");
     $(document).ready(function() 
     {
-        var icoLista = document.getElementById("icoLista");
-        console.log(icoLista);
-        cssBase(); // ASIGNANDO CSS
+        var mapaCanvas = document.getElementById("contenidoImg");
+        var mapaOpciones =
+              {
+                  center: new google.maps.LatLng(51.508742,-0.120850),
+                  zoom: 5
+              };
+        var map = new google.maps.Map(mapaCanvas, mapaOpciones);
     });
-    //
-    //$('#opLista').hide(300);// OCULTANDO MENU DE OPCIONES
-    
-    // COGIENDO ELEMENTOS GLOBALES
-    /*
-    btnLogo = document.getElementById("logo");
-    btnVolver = document.getElementById("icoVolver");
-    btnOpciones = document.getElementById("icoMenu");
-    btnNosotros = document.getElementById("nosotros");
-    btnCondServ = document.getElementById("condServ");
-    btnLegal = document.getElementById("legal");
-    btnPolitica = document.getElementById("politica");
-    btnContacto = document.getElementById("contacto");
-    btnMisWebs = document.getElementById("misWebs");
-    btnCertificados = document.getElementById("certificados");
-    */
-    
-   
-    // ASIGNANDO EVENTOS A ELEMENTOS GLOBALES
-    /*
-    btnLogo.addEventListener("click", animaBoton);
-    btnVolver.addEventListener("click", function ()
-                               {
-                                console.log('dentro de volver' + volver);
-                                atras();
-                                });
-    btnOpciones.addEventListener("click", evenOpcionesON);
-    btnNosotros.addEventListener("click", evenOp);
-    btnCondServ.addEventListener("click", evenOp);
-    btnLegal.addEventListener("click", evenOp);
-    btnPolitica.addEventListener("click", evenOp);
-    btnContacto.addEventListener("click", evenOp);
-    btnMisWebs.addEventListener("click", evenOp);
-    btnCertificados.addEventListener("click", evenOp);
-    */
-    //domHome(); // RELLENANDO LA HOME
     
 }
 
-// ASIGNA CLASES AL DOM BASE
-function cssBase()
+//      FINAL MAPA       //
+
+
+
+
+////////////////////////////
+///    LISTADO PISOS     ///
+////////////////////////////
+
+function listadoPisos()
 {
-    $('#header01').addClass('boton');
-    $('#opciones01').addClass('boton');
-    $('#pie01').addClass('boton');
-    $('#icoLista > ul > li').addClass('icoSocial');
+    var contenedorPisos = document.getElementById("contenidoImg");
+    $(contenedorPisos).html("listado de pisos");
 }
 
-// VUELVE AL MENU ANTERIOR
-function atras ()
-{
-    switch (volver)
-    {
-        case 'home':
-            evenHome();
-        break;
-        case 'golosinas':
-            golosinas();
-        break;
-        case 'prensa':
-            prensa();
-        break;
-        case 'producGol':
-            producGolosinas();
-        break;
-        default:
-            false;
-        break;
-    }
-}
-
-// ACTIVA EL MENU OPCIONES
-function evenOpcionesON(e)
-{
-    $('#opLista').show(500); // MUESTRA LA LISTA DE OPCIONES
-    $('#opciones').animate({opacity:0.9},500); //ASIGNA OPACIDAD PARA VISUALIZAR EL MENU OPCIONES
-    $('#opciones01').animate({opacity:0.8},500); //ASIGNA OPACIDAD PARA VISUALIZAR EL MENU OPCIONES
-    btnOpciones.removeEventListener("click", evenOpcionesON); // CAMBIA DE FUNCIONALIDAD EL EVENTO
-    btnOpciones.addEventListener("click", evenOpcionesOFF); // CAMBIA DE FUNCIONALIDAD EL EVENTO
-}
-
-// DESACTIVA EL MENU OPCIONES
-function evenOpcionesOFF(e)
-{
-    $('#opciones01').animate({opacity:0},1000); //ASIGNA OPACIDAD PARA OCULTAR EL MENU OPCIONES
-    $('#opciones').animate({opacity:0},500); //ASIGNA OPACIDAD PARA OCULTAR EL MENU OPCIONES
-    $('#opLista').hide(500); // OCULTA LA LISTA DE OPCIONES
-    btnOpciones.removeEventListener("click", evenOpcionesOFF); // CAMBIA DE FUNCIONALIDAD EL EVENTO
-    btnOpciones.addEventListener("click", evenOpcionesON); // CAMBIA DE FUNCIONALIDAD EL EVENTO
-    
-}
-
-// SELECCIONA LA OPCIÓN DEL MENÚ OPCIONES
-function evenOp(e)
-{
-    var i = e.target.parentElement.id; // ID DEL ELEMENTO CLICKEADO
-    $.getJSON('json/menuOp.json', ev); // DATOS Y FUNCIÓN QUE CONTROLA LA LISTA DE OPCIONES
-    
-    function ev(data)
-    {
-        bdActual = data;
-        switch (i)
-        {
-            case 'nosotros': 
-                var d0 = data[0].nosotros, d1 = data[1].nosotros, t = 'KioscoOnline_QuienesSomos'; //ASIGNA VALORES
-                contenido(d0, d1, t);  // INSERTA VALORES EN EL NAVEGADOR
-            break;
-            case 'condServ':
-                var d0 = data[0].condServ, d1 = data[1].condServ, t = 'KioscoOnline_Condiciones'; //ASIGNA VALORES
-                contenido(d0, d1, t); // INSERTA VALORES EN EL NAVEGADOR
-            break;
-            case 'legal': 
-                var d0 = data[0].legal, d1 = data[1].legal, t = 'KioscoOnline_AvisoLegal'; //ASIGNA VALORES
-                contenido(d0, d1, t); // INSERTA VALORES EN EL NAVEGADOR
-            break;
-            case 'politica': 
-                var d0 = data[0].politica, d1 = data[1].politica, t = 'KioscoOnline_PoliticaDePrivacidad'; //ASIGNA VALORES
-                contenido(d0, d1, t); // INSERTA VALORES EN EL NAVEGADOR
-            break;
-            case 'contacto': 
-                var d0 = data[0].contacto, d1 = data[1].contacto, t = 'KioscoOnline_Contacto'; //ASIGNA VALORES
-                contenido(d0, d1, t); // INSERTA VALORES EN EL NAVEGADOR
-            break;
-            case 'misWebs': 
-                var d0 = data[0].misWebs, d1 = data[1].misWebs, t = 'KioscoOnline_WebsAmigas'; //ASIGNA VALORES
-                contenido(d0, d1, t); // INSERTA VALORES EN EL NAVEGADOR
-            break;
-            case 'certificados': 
-                var d0 = data[0].certificados, d1 = data[1].certificados, t = 'KioscoOnline_CertificadosWeb'; //ASIGNA VALORES
-                contenido(d0, d1, t);  // INSERTA VALORES EN EL NAVEGADOR  
-            break;
-            default:
-                false;
-            break;
-        }
-        
-        // CONTENIDO SEGÚN OPCIÓN
-        function contenido(d0, d1, t)
-        {
-            evenOpcionesOFF();
-            $('#contenido').html('<h1>'+d0+'</h1>'); // INSERTA H1 DE LA PÁGINA SEGÚN OPCION
-            $('#contenido').append('<div class="txtContenido"><p>'+d1+'</p></div>'); // INSERTA TEXTO DE LA PÁGINA SEGÚN OPCION
-            $(document).ready(function() {document.title = t;}); // INSERTA TITULO DE LA PÁGINA SEGÚN OPCION 
-          
-        }
-    }
-
-}
-
-// INICIALIZA EL SITIO 
-function evenHome(e)
-{
-    evenOpcionesOFF();
-    domBase(); 
-}
-
-
-
+//    FINAL LISTADO PISOS     //

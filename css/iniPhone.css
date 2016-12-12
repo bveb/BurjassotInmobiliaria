@@ -31,10 +31,27 @@ body
     font-family: 'GauntletClassic' , sans-serif;
     font-size: 16px;
 }
+button
+{
+    background-color: #ffd1cf;
+    color: #951f1b;
+}
+h1
+{
+    
+}
+h2, h3
+{
+    color: red;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 4% 0;
+}
 select
 {
     height: auto;
     width: 100%;
+    color: #951f1b;
 }
 
 /* ID */
@@ -93,25 +110,22 @@ select
 }
 #cab_menu_ext
 {
-    background-color: #951f1b;
-    -webkit-box-shadow: inset 10px 5px 10px 5px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 5px 5px 10px 5px rgba(0,0,0,0.5);
-    box-shadow: inset 5px 5px 10px 5px rgba(0,0,0,0.5);
-    color: white;
-    height: 58%;
-    width: 96%;
-    padding-top: 50%;
+    background-color: white;
+    color: #951f1b;
+    height: 60%;
+    width: 60%;
     position: absolute;
-    bottom: 0;
-    left: 2%;
+    top: 13%;
+    right: 2%;
     visibility: hidden;
-    opacity: 0.95;
+    opacity: 1;
     z-index: 2;
     
 }
 #cab_menu_ext > button
 {
-    margin: 0.5em auto;   
+    margin: 0.5em auto;
+    width: 80%;
 }
 #cab_menu_ext_cerrar
 {
@@ -134,6 +148,7 @@ select
 }
 #contenidoTxt
 {
+    overflow-y: scroll;
     background-color:white;
     border-left: 3px solid white;
     color: #951f1b; 
@@ -142,6 +157,25 @@ select
     height: 22%;
     visibility: visible; 
 }
+#contenidoTxt_cerrar
+{
+    position: absolute;
+    bottom: 5%;
+    right: 40%;
+}
+#contTxt_filtros
+{
+    overflow-y: scroll;
+    height: 95%;
+    width: 100%;
+    text-transform: uppercase;
+    padding-left: 10%;
+}
+#contTxt_filtros > input
+{
+    margin-top: 0.6em;
+}
+
 #conttxt1
 {
     width: 80%;
@@ -180,50 +214,6 @@ select
     width: 100%;
     height: auto;
     margin-top: 1%;
-}
-#conttxt2_filtros_f3_ext
-{
-    background-color: #951f1b;
-    -webkit-box-shadow: inset 10px 5px 10px 5px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 5px 5px 10px 5px rgba(0,0,0,0.5);
-    box-shadow: inset 5px 5px 10px 5px rgba(0,0,0,0.5);
-    color: white;
-    height: 87%;
-    width: 96%;
-    position: absolute;
-    bottom: 0;
-    left: 2%;
-    visibility: hidden;
-    opacity: 0.95;
-    z-index: 2;
-}
-#conttxt2_filtros_f3_ext > label
-{
-    position: relative;
-    top: 10%;
-    left: 10%;
-    display: block;
-    float: left;
-    padding-bottom: 0.6em;
-    width: 60%;
-}
-#conttxt2_filtros_f3_ext > input
-{
-    position: relative;
-    top: 10%;
-    left: 10%;
-    margin-bottom: 1em;
-    width: 1.5em;
-}
-#conttxt2_filtros_f3_ext_cerrar
-{
-    background-color: #951f1b;
-    color: white;
-    bottom: 5%;
-    position:inherit;
-    left: 10%;
-    width: 80%;
-    
 }
 #conttxt3
 {

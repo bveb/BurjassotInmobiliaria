@@ -1,0 +1,23 @@
+
+[
+    {
+        "contenedor" :"<div id = \"contenedor\"></div>",
+        "cabecera" : "<div id=\"cabecera\"><img id=\"cab_esp\"><img id=\"cab_ing\"><img id=\"cab_val\"><img id=\"cab_logo\"><img id=\"cab_usuario\"><img id=\"cab_menu\"><div id=\"cab_menu_ext\"></div></div>",
+        "contenidoImg" : "<div id = \"contenidoImg\"></div>",
+        "contenidoTxt" : "<div id = \"contenidoTxt\"><div id = \"conttxt1\"></div><div id = \"conttxt2\"></div><div id = \"conttxt3\"></div></div>",
+        "pie" : "<div id=\"pie\"><span>Telefonos: </span><a href=\"tel://615815921\" class=\"numTel\"> 615 815 921</a><a href=\"tel://963638429\" class=\"numTel\"> 96 363 84 29</a></div>",
+        "conttxt1" : "<form id=\"conttxt1_check\"><input type=\"checkbox\" name=\"comprar\" value=\"comprar\" id=\"conttxt1_check_comprar\" checked/><label for=\"comprar\" id=\"conttxt1_label_comprar\"></label><input type=\"checkbox\" name=\"alquilar\" value=\"alquilar\" id=\"conttxt1_check_alquilar\" /><label for=\"alquilar\" id=\"conttxt1_label_alquilar\"></label></form>",
+        "conttxt2" : "<form id=\"conttxt2_filtros\"><select id=\"conttxt2_filtros_f1\" name=\"tipoInmueble\" ></select><br/><select id=\"conttxt2_filtros_f2\" name=\"municipio\"></select><button id=\"conttxt2_filtros_f3\" type=\"button\"></button>",
+        "conttxt3" : "<div id=\"conttxt3\"><form id=\"conttxt3_modoSelec\"><button id=\"conttxt3_modoSelec_mapa\" type=\"button\"></button><button id=\"conttxt3_modoSelec_lista\" type=\"button\"></button></form></div>",
+        "menu" : "<button id=\"cab_menu_ext_somos\"></button><br><button id=\"cab_menu_ext_contacto\"></button><br><button id=\"cab_menu_ext_condiciones\"></button><br>"
+    },
+    {
+        "cab_esp" : "img/icon/bandEsp.png",
+        "cab_ing" :  "img/icon/bandIng.png",
+        "cab_val" :  "img/icon/bandVal.png",
+        "cab_logo" :  "img/icon/logo.png",
+        "cab_usuario" :  "img/icon/icoUsuarios.png",
+        "cab_menu" :  "img/icon/icoMenu.png"
+    }
+]
+
